@@ -1,15 +1,15 @@
 //
-//  GXAnimationPushDelegate.swift
+//  GXAnimationPushEdgeDelegate.swift
 //  GXTransitionSample
 //
-//  Created by Gin on 2020/11/18.
+//  Created by Gin on 2020/12/4.
 //
 
 import UIKit
 
-private let GX_ANIMATED_PERCENT: CGFloat = 0.3
+private let GX_ANIMATED_SCALE: CGFloat = 0.92
 
-class GXAnimationPushDelegate: GXAnimationBaseDelegate {
+class GXAnimationPushEdgeDelegate: GXAnimationBaseDelegate {
     // MARK: - Override
     
     override func presentViewAnimation(_ transitionContext: UIViewControllerContextTransitioning) {
@@ -22,34 +22,30 @@ class GXAnimationPushDelegate: GXAnimationBaseDelegate {
         transitionContext.containerView.bringSubviewToFront(toView)
         fromView.isHidden = true
         
-        var toFrame = toView.frame, fromFrame = fromView.frame
+        var toFrame = toView.frame
         switch self.subtype {
         case .top:
             toFrame.origin.y = toView.frame.height
             toView.frame = toFrame
             toFrame.origin.y = 0.0
-            fromFrame.origin.y = -fromView.frame.height * GX_ANIMATED_PERCENT
         case .left:
             toFrame.origin.x = toView.frame.width
             toView.frame = toFrame
             toFrame.origin.x = 0.0
-            fromFrame.origin.x = -fromView.frame.width * GX_ANIMATED_PERCENT
         case .right:
             toFrame.origin.x = -toView.frame.width
             toView.frame = toFrame
             toFrame.origin.x = 0.0
-            fromFrame.origin.x = fromView.frame.width * GX_ANIMATED_PERCENT
         case .bottom:
             toFrame.origin.y = -toView.frame.height
             toView.frame = toFrame
             toFrame.origin.y = 0.0
-            fromFrame.origin.y = fromView.frame.height * GX_ANIMATED_PERCENT
         }
         self.addBackgroundView(to: fromSnapshotView)
         self.addShadow(to: toView)
         self.animateWithContext(transitionContext, isPresent: true) {
             toView.frame = toFrame
-            fromSnapshotView.frame = fromFrame
+            fromSnapshotView.transform = CGAffineTransform(scaleX: GX_ANIMATED_SCALE, y: GX_ANIMATED_SCALE)
         } completion: { (finished) in
             fromView.isHidden = false
             fromSnapshotView.removeFromSuperview()
@@ -64,34 +60,23 @@ class GXAnimationPushDelegate: GXAnimationBaseDelegate {
             transitionContext.containerView.bringSubviewToFront(fromView)
         }
 
-        var toFrame = toView.frame, fromFrame = fromView.frame
+        toView.transform = CGAffineTransform(scaleX: GX_ANIMATED_SCALE, y: GX_ANIMATED_SCALE)
+        var fromFrame = fromView.frame
         switch self.subtype {
         case .top:
-            toFrame.origin.y = -toView.frame.height * GX_ANIMATED_PERCENT
-            toView.frame = toFrame
-            toFrame.origin.y = 0.0
             fromFrame.origin.y = fromView.frame.height
         case .left:
-            toFrame.origin.x = -toView.frame.width * GX_ANIMATED_PERCENT
-            toView.frame = toFrame
-            toFrame.origin.x = 0.0
             fromFrame.origin.x = fromView.frame.width
         case .right:
-            toFrame.origin.x = toView.frame.width * GX_ANIMATED_PERCENT
-            toView.frame = toFrame
-            toFrame.origin.x = 0.0
             fromFrame.origin.x = -fromView.frame.width
         case .bottom:
-            toFrame.origin.y = toView.frame.height * GX_ANIMATED_PERCENT
-            toView.frame = toFrame
-            toFrame.origin.y = 0.0
             fromFrame.origin.y = -fromView.frame.height
         }
         self.addBackgroundView(to: toView)
         self.addShadow(to: fromView)
         self.animateWithContext(transitionContext, isPresent: false, animations: {
-            toView.frame = toFrame
             fromView.frame = fromFrame
+            toView.transform = .identity
         }, completion: nil)
     }
     

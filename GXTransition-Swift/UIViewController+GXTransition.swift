@@ -10,7 +10,10 @@ import UIKit
 private var GX_DELEGATE = 0
 
 public enum GXAnimationStyle: Int {
-    case push = 0
+    case push      = 0
+    case pushEdge  = 1
+    case pushAll   = 2
+    case sector    = 3
 }
 
 public extension UIViewController {
@@ -84,6 +87,12 @@ fileprivate extension UIViewController {
         switch style {
         case .push:
             self.gx_animatedDelegate = GXAnimationPushDelegate()
+        case .pushEdge:
+            self.gx_animatedDelegate = GXAnimationPushEdgeDelegate()
+        case .pushAll:
+            self.gx_animatedDelegate = GXAnimationPushAllDelegate()
+        case .sector:
+            self.gx_animatedDelegate = GXAnimationSectorDelegate()
         }
         
         self.gx_animatedDelegate?.configureTransition(vc, subtype: subtype, isPush: isPush, interacted: interacted, rectEdges: rectEdges)

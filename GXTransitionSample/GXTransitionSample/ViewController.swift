@@ -9,7 +9,7 @@ import UIKit
 
 let GX_ANIMATION_SUBTYPE = ["top", "left", "right", "bottom"]
 
-let GX_ANIMATION_CUSTOM  = ["Push"]
+let GX_ANIMATION_CUSTOM  = ["Push", "PushEdge", "All", "Sector"]
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -65,9 +65,26 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
         case 0:
             self.gx_present(navc, style: .push, subtype: self.subtype, rectEdges: self.rectEdges)
-            
+        case 1:
+            self.gx_present(navc, style: .pushEdge, subtype: self.subtype, rectEdges: self.rectEdges)
+        case 2:
+            self.gx_present(navc, style: .pushAll, subtype: self.subtype, rectEdges: self.rectEdges)
+        case 3:
+            self.gx_present(navc, style: .sector, subtype: self.subtype, rectEdges: self.rectEdges)
         default: break
         }
+        
+//        switch indexPath.row {
+//        case 0:
+//            self.gx_push(vc, style: .push, subtype: self.subtype, rectEdges: self.rectEdges)
+//        case 1:
+//            self.gx_push(vc, style: .pushEdge, subtype: self.subtype, rectEdges: self.rectEdges)
+//        case 2:
+//            self.gx_push(vc, style: .pushAll, subtype: self.subtype, rectEdges: self.rectEdges)
+//        case 3:
+//            self.gx_push(vc, style: .sector, subtype: self.subtype, rectEdges: self.rectEdges)
+//        default: break
+//        }
     }
     
 }

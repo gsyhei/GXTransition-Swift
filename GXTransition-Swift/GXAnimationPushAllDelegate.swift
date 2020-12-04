@@ -1,15 +1,13 @@
 //
-//  GXAnimationPushDelegate.swift
+//  GXAnimationPushAllDelegate.swift
 //  GXTransitionSample
 //
-//  Created by Gin on 2020/11/18.
+//  Created by Gin on 2020/12/5.
 //
 
 import UIKit
 
-private let GX_ANIMATED_PERCENT: CGFloat = 0.3
-
-class GXAnimationPushDelegate: GXAnimationBaseDelegate {
+class GXAnimationPushAllDelegate: GXAnimationBaseDelegate {
     // MARK: - Override
     
     override func presentViewAnimation(_ transitionContext: UIViewControllerContextTransitioning) {
@@ -28,22 +26,22 @@ class GXAnimationPushDelegate: GXAnimationBaseDelegate {
             toFrame.origin.y = toView.frame.height
             toView.frame = toFrame
             toFrame.origin.y = 0.0
-            fromFrame.origin.y = -fromView.frame.height * GX_ANIMATED_PERCENT
+            fromFrame.origin.y = -fromView.frame.height
         case .left:
             toFrame.origin.x = toView.frame.width
             toView.frame = toFrame
             toFrame.origin.x = 0.0
-            fromFrame.origin.x = -fromView.frame.width * GX_ANIMATED_PERCENT
+            fromFrame.origin.x = -fromView.frame.width
         case .right:
             toFrame.origin.x = -toView.frame.width
             toView.frame = toFrame
             toFrame.origin.x = 0.0
-            fromFrame.origin.x = fromView.frame.width * GX_ANIMATED_PERCENT
+            fromFrame.origin.x = fromView.frame.width
         case .bottom:
             toFrame.origin.y = -toView.frame.height
             toView.frame = toFrame
             toFrame.origin.y = 0.0
-            fromFrame.origin.y = fromView.frame.height * GX_ANIMATED_PERCENT
+            fromFrame.origin.y = fromView.frame.height
         }
         self.addBackgroundView(to: fromSnapshotView)
         self.addShadow(to: toView)
@@ -67,22 +65,22 @@ class GXAnimationPushDelegate: GXAnimationBaseDelegate {
         var toFrame = toView.frame, fromFrame = fromView.frame
         switch self.subtype {
         case .top:
-            toFrame.origin.y = -toView.frame.height * GX_ANIMATED_PERCENT
+            toFrame.origin.y = -toView.frame.height
             toView.frame = toFrame
             toFrame.origin.y = 0.0
             fromFrame.origin.y = fromView.frame.height
         case .left:
-            toFrame.origin.x = -toView.frame.width * GX_ANIMATED_PERCENT
+            toFrame.origin.x = -toView.frame.width
             toView.frame = toFrame
             toFrame.origin.x = 0.0
             fromFrame.origin.x = fromView.frame.width
         case .right:
-            toFrame.origin.x = toView.frame.width * GX_ANIMATED_PERCENT
+            toFrame.origin.x = toView.frame.width
             toView.frame = toFrame
             toFrame.origin.x = 0.0
             fromFrame.origin.x = -fromView.frame.width
         case .bottom:
-            toFrame.origin.y = toView.frame.height * GX_ANIMATED_PERCENT
+            toFrame.origin.y = toView.frame.height
             toView.frame = toFrame
             toFrame.origin.y = 0.0
             fromFrame.origin.y = -fromView.frame.height
