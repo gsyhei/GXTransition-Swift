@@ -33,6 +33,7 @@ public extension UIViewController {
     /// - Parameters:
     ///   - viewController: 目标vc
     ///   - style: 转场动画类型
+    ///   - style: 注意：不支持cube与oglFlip，push动画不支持transitionContext.containerView.layer.sublayerTransform
     ///   - subtype: 转场动画方向
     ///   - interacting: 是否开启手势返回
     ///   - rectEdges: 自定义返回手势方向（注意这里只有left/right）
