@@ -14,6 +14,7 @@
 		338EB56025661107001CFD67 /* OneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 338EB55E25661107001CFD67 /* OneViewController.xib */; };
 		338EB5662566125D001CFD67 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EB5642566125D001CFD67 /* TwoViewController.swift */; };
 		338EB5672566125D001CFD67 /* TwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 338EB5652566125D001CFD67 /* TwoViewController.xib */; };
+		3393783E257BBD23006BF4ED /* GXAnimationCubeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3393783D257BBD23006BF4ED /* GXAnimationCubeDelegate.swift */; };
 		33A620132565003E00497D4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A620122565003E00497D4B /* AppDelegate.swift */; };
 		33A620172565003E00497D4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A620162565003E00497D4B /* ViewController.swift */; };
 		33A6201A2565003E00497D4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A620182565003E00497D4B /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		33A62047256504E700497D4B /* GXAnimationBaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A62046256504E700497D4B /* GXAnimationBaseDelegate.swift */; };
 		33A6204F256524BD00497D4B /* GXAnimationPushDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6204E256524BD00497D4B /* GXAnimationPushDelegate.swift */; };
 		33C7B50A25657717005728AB /* UIViewController+GXTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C7B50925657717005728AB /* UIViewController+GXTransition.swift */; };
+		33EFE63E257BF5080089E640 /* GXAnimationOglFlipDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EFE63D257BF5080089E640 /* GXAnimationOglFlipDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 		338EB55E25661107001CFD67 /* OneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneViewController.xib; sourceTree = "<group>"; };
 		338EB5642566125D001CFD67 /* TwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
 		338EB5652566125D001CFD67 /* TwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoViewController.xib; sourceTree = "<group>"; };
+		3393783D257BBD23006BF4ED /* GXAnimationCubeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXAnimationCubeDelegate.swift; sourceTree = "<group>"; };
 		33A6200F2565003E00497D4B /* GXTransitionSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GXTransitionSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A620122565003E00497D4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33A620162565003E00497D4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		33A62046256504E700497D4B /* GXAnimationBaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXAnimationBaseDelegate.swift; sourceTree = "<group>"; };
 		33A6204E256524BD00497D4B /* GXAnimationPushDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXAnimationPushDelegate.swift; sourceTree = "<group>"; };
 		33C7B50925657717005728AB /* UIViewController+GXTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+GXTransition.swift"; sourceTree = "<group>"; };
+		33EFE63D257BF5080089E640 /* GXAnimationOglFlipDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXAnimationOglFlipDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 				336A5DB2257A9166001593B7 /* GXAnimationPushEdgeDelegate.swift */,
 				336A5DB7257A96EA001593B7 /* GXAnimationPushAllDelegate.swift */,
 				336A5DBF257A9900001593B7 /* GXAnimationSectorDelegate.swift */,
+				33EFE63D257BF5080089E640 /* GXAnimationOglFlipDelegate.swift */,
+				3393783D257BBD23006BF4ED /* GXAnimationCubeDelegate.swift */,
 			);
 			name = "GXTransition-Swift";
 			path = "../../GXTransition-Swift";
@@ -304,8 +310,10 @@
 				33A62047256504E700497D4B /* GXAnimationBaseDelegate.swift in Sources */,
 				336A5DC0257A9900001593B7 /* GXAnimationSectorDelegate.swift in Sources */,
 				336A5DB8257A96EA001593B7 /* GXAnimationPushAllDelegate.swift in Sources */,
+				33EFE63E257BF5080089E640 /* GXAnimationOglFlipDelegate.swift in Sources */,
 				33A620132565003E00497D4B /* AppDelegate.swift in Sources */,
 				338EB55F25661107001CFD67 /* OneViewController.swift in Sources */,
+				3393783E257BBD23006BF4ED /* GXAnimationCubeDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

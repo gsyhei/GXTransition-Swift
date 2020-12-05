@@ -14,6 +14,8 @@ public enum GXAnimationStyle: Int {
     case pushEdge  = 1
     case pushAll   = 2
     case sector    = 3
+    case cube      = 4
+    case oglFlip   = 5
 }
 
 public extension UIViewController {
@@ -93,6 +95,10 @@ fileprivate extension UIViewController {
             self.gx_animatedDelegate = GXAnimationPushAllDelegate()
         case .sector:
             self.gx_animatedDelegate = GXAnimationSectorDelegate()
+        case .cube:
+            self.gx_animatedDelegate = GXAnimationCubeDelegate()
+        case .oglFlip:
+            self.gx_animatedDelegate = GXAnimationOglFlipDelegate()
         }
         
         self.gx_animatedDelegate?.configureTransition(vc, subtype: subtype, isPush: isPush, interacted: interacted, rectEdges: rectEdges)
