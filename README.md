@@ -1,6 +1,5 @@
 # GXTransition-Swift
-Swift版本的iOS常用转场动画（包括自定义和iOS自带转场动画）
-Commonly used transition animation in iOS (including custom transition animation and iOS own transition animation).
+Swift版本的iOS常用转场动画（包括自定义和iOS自带转场动画）。
 有建议可以联系QQ交流群:1101980843，喜欢就给个star哦，谢谢关注！
 <p align="center">
 <img src="https://github.com/gsyhei/GXCardView-Swift/blob/master/QQ.jpeg">
@@ -33,7 +32,7 @@ pod 'GXTransition'
 
 使用方法
 --
-首先#import "UIViewController+GXTransitionDelegate.h"，然后直接使用扩展方法就行，是不是很简单😁。
+首先 import GXTransition-Swift，然后直接使用扩展方法就行，是不是很简单😁。
 
 ```swift
 
