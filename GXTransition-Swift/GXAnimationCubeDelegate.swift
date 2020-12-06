@@ -21,40 +21,57 @@ class GXAnimationCubeDelegate: GXAnimationBaseDelegate {
         transitionContext.containerView.addSubview(fromSnapshotView)
         transitionContext.containerView.bringSubviewToFront(toView)
         fromView.isHidden = true
-        
+                
         var transform3D: CATransform3D = CATransform3DIdentity
         switch self.subtype {
         case .top:
-            var toTransform3D = CATransform3DMakeTranslation(0, height * 0.5, -height * 0.5)
+            var fromTransform3D = CATransform3DIdentity
+            fromTransform3D = CATransform3DTranslate(fromTransform3D, 0, 0, height * 0.5)
+            fromTransform3D = CATransform3DRotate(fromTransform3D, 0, 0, 0, 0)
+            fromSnapshotView.layer.transform = fromTransform3D
+            var toTransform3D = CATransform3DTranslate(transform3D, 0, height * 0.5, 0)
             toTransform3D = CATransform3DRotate(toTransform3D, -CGFloat(Float.pi/2), 1.0, 0, 0)
             toView.layer.transform = toTransform3D
             transform3D.m34 = 1.0 / -1200
+            transform3D = CATransform3DTranslate(transform3D, 0, 0, -height * 0.5)
             transitionContext.containerView.layer.sublayerTransform = transform3D
-            transform3D = CATransform3DMakeTranslation(0, -height * 0.5, 0)
             transform3D = CATransform3DRotate(transform3D, CGFloat(Float.pi/2), 1.0, 0, 0)
         case .left:
-            var toTransform3D = CATransform3DMakeTranslation(width * 0.5, 0, -width * 0.5)
+            var fromTransform3D = CATransform3DIdentity
+            fromTransform3D = CATransform3DTranslate(fromTransform3D, 0, 0, width * 0.5)
+            fromTransform3D = CATransform3DRotate(fromTransform3D, 0, 0, 0, 0)
+            fromSnapshotView.layer.transform = fromTransform3D
+            var toTransform3D = CATransform3DIdentity
+            toTransform3D = CATransform3DTranslate(toTransform3D, width * 0.5, 0, 0)
             toTransform3D = CATransform3DRotate(toTransform3D, CGFloat(Float.pi/2), 0, 1.0, 0)
             toView.layer.transform = toTransform3D
             transform3D.m34 = 1.0 / -1200
+            transform3D = CATransform3DTranslate(transform3D, 0, 0, -width * 0.5)
             transitionContext.containerView.layer.sublayerTransform = transform3D
-            transform3D = CATransform3DMakeTranslation(-width * 0.5, 0, 0)
             transform3D = CATransform3DRotate(transform3D, -CGFloat(Float.pi/2), 0, 1.0, 0)
         case .right:
-            var toTransform3D = CATransform3DMakeTranslation(-width * 0.5, 0, -width * 0.5)
+            var fromTransform3D = CATransform3DIdentity
+            fromTransform3D = CATransform3DTranslate(fromTransform3D, 0, 0, width * 0.5)
+            fromTransform3D = CATransform3DRotate(fromTransform3D, 0, 0, 0, 0)
+            fromSnapshotView.layer.transform = fromTransform3D
+            var toTransform3D = CATransform3DTranslate(transform3D, -width * 0.5, 0, 0)
             toTransform3D = CATransform3DRotate(toTransform3D, -CGFloat(Float.pi/2), 0, 1.0, 0)
             toView.layer.transform = toTransform3D
             transform3D.m34 = 1.0 / -1200
+            transform3D = CATransform3DTranslate(transform3D, 0, 0, -width * 0.5)
             transitionContext.containerView.layer.sublayerTransform = transform3D
-            transform3D = CATransform3DMakeTranslation(width * 0.5, 0, 0)
             transform3D = CATransform3DRotate(transform3D, CGFloat(Float.pi/2), 0, 1.0, 0)
         case .bottom:
-            var toTransform3D = CATransform3DMakeTranslation(0, -height * 0.5, -height * 0.5)
+            var fromTransform3D = CATransform3DIdentity
+            fromTransform3D = CATransform3DTranslate(fromTransform3D, 0, 0, height * 0.5)
+            fromTransform3D = CATransform3DRotate(fromTransform3D, 0, 0, 0, 0)
+            fromSnapshotView.layer.transform = fromTransform3D
+            var toTransform3D = CATransform3DTranslate(transform3D, 0, -height * 0.5, 0)
             toTransform3D = CATransform3DRotate(toTransform3D, CGFloat(Float.pi/2), 1.0, 0, 0)
             toView.layer.transform = toTransform3D
             transform3D.m34 = 1.0 / -1200
+            transform3D = CATransform3DTranslate(transform3D, 0, 0, -height * 0.5)
             transitionContext.containerView.layer.sublayerTransform = transform3D
-            transform3D = CATransform3DMakeTranslation(0, height * 0.5, 0)
             transform3D = CATransform3DRotate(transform3D, -CGFloat(Float.pi/2), 1.0, 0, 0)
         }
         self.addBackgroundView(to: fromView)
@@ -86,36 +103,53 @@ class GXAnimationCubeDelegate: GXAnimationBaseDelegate {
         var transform3D: CATransform3D = CATransform3DIdentity
         switch self.subtype {
         case .top:
-            var toTransform3D = CATransform3DMakeTranslation(0, -height * 0.5, -height * 0.5)
+            var fromTransform3D = CATransform3DIdentity
+            fromTransform3D = CATransform3DTranslate(fromTransform3D, 0, 0, height * 0.5)
+            fromTransform3D = CATransform3DRotate(fromTransform3D, 0, 0, 0, 0)
+            fromView.layer.transform = fromTransform3D
+            var toTransform3D = CATransform3DTranslate(transform3D, 0, -height * 0.5, 0)
             toTransform3D = CATransform3DRotate(toTransform3D, CGFloat(Float.pi/2), 1.0, 0, 0)
             toSnapshotView.layer.transform = toTransform3D
             transform3D.m34 = 1.0 / -1200
+            transform3D = CATransform3DTranslate(transform3D, 0, 0, -height * 0.5)
             transitionContext.containerView.layer.sublayerTransform = transform3D
-            transform3D = CATransform3DMakeTranslation(0, height * 0.5, 0)
             transform3D = CATransform3DRotate(transform3D, -CGFloat(Float.pi/2), 1.0, 0, 0)
         case .left:
-            var toTransform3D = CATransform3DMakeTranslation(-width * 0.5, 0, -width * 0.5)
+            var fromTransform3D = CATransform3DIdentity
+            fromTransform3D = CATransform3DTranslate(fromTransform3D, 0, 0, width * 0.5)
+            fromTransform3D = CATransform3DRotate(fromTransform3D, 0, 0, 0, 0)
+            fromView.layer.transform = fromTransform3D
+            var toTransform3D = CATransform3DTranslate(transform3D, -width * 0.5, 0, 0)
             toTransform3D = CATransform3DRotate(toTransform3D, -CGFloat(Float.pi/2), 0, 1.0, 0)
             toSnapshotView.layer.transform = toTransform3D
             transform3D.m34 = 1.0 / -1200
+            transform3D = CATransform3DTranslate(transform3D, 0, 0, -width * 0.5)
             transitionContext.containerView.layer.sublayerTransform = transform3D
-            transform3D = CATransform3DMakeTranslation(width * 0.5, 0, 0)
             transform3D = CATransform3DRotate(transform3D, CGFloat(Float.pi/2), 0, 1.0, 0)
         case .right:
-            var toTransform3D = CATransform3DMakeTranslation(width * 0.5, 0, -width * 0.5)
+            var fromTransform3D = CATransform3DIdentity
+            fromTransform3D = CATransform3DTranslate(fromTransform3D, 0, 0, width * 0.5)
+            fromTransform3D = CATransform3DRotate(fromTransform3D, 0, 0, 0, 0)
+            fromView.layer.transform = fromTransform3D
+            var toTransform3D = CATransform3DIdentity
+            toTransform3D = CATransform3DTranslate(toTransform3D, width * 0.5, 0, 0)
             toTransform3D = CATransform3DRotate(toTransform3D, CGFloat(Float.pi/2), 0, 1.0, 0)
             toSnapshotView.layer.transform = toTransform3D
             transform3D.m34 = 1.0 / -1200
+            transform3D = CATransform3DTranslate(transform3D, 0, 0, -width * 0.5)
             transitionContext.containerView.layer.sublayerTransform = transform3D
-            transform3D = CATransform3DMakeTranslation(-width * 0.5, 0, 0)
             transform3D = CATransform3DRotate(transform3D, -CGFloat(Float.pi/2), 0, 1.0, 0)
         case .bottom:
-            var toTransform3D = CATransform3DMakeTranslation(0, height * 0.5, -height * 0.5)
+            var fromTransform3D = CATransform3DIdentity
+            fromTransform3D = CATransform3DTranslate(fromTransform3D, 0, 0, height * 0.5)
+            fromTransform3D = CATransform3DRotate(fromTransform3D, 0, 0, 0, 0)
+            fromView.layer.transform = fromTransform3D
+            var toTransform3D = CATransform3DTranslate(transform3D, 0, height * 0.5, 0)
             toTransform3D = CATransform3DRotate(toTransform3D, -CGFloat(Float.pi/2), 1.0, 0, 0)
             toSnapshotView.layer.transform = toTransform3D
             transform3D.m34 = 1.0 / -1200
+            transform3D = CATransform3DTranslate(transform3D, 0, 0, -height * 0.5)
             transitionContext.containerView.layer.sublayerTransform = transform3D
-            transform3D = CATransform3DMakeTranslation(0, -height * 0.5, 0)
             transform3D = CATransform3DRotate(transform3D, CGFloat(Float.pi/2), 1.0, 0, 0)
         }
         self.addBackgroundView(to: toSnapshotView)
