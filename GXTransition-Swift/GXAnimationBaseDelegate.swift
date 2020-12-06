@@ -173,7 +173,7 @@ extension GXAnimationBaseDelegate: UIViewControllerTransitioningDelegate,UIViewC
     // MARK: - UIViewControllerAnimatedTransitioning
     
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 5
+        return 0.25
     }
     
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
