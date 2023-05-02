@@ -24,7 +24,7 @@ public class GXAnimationBaseDelegate: NSObject, UIGestureRecognizerDelegate {
     var isNavPush: Bool = false
     /// 是否打开手势返回
     var interacting: Bool = false
-    /// 是否为present
+    /// 是否为present / dismiss
     var isPresentAnimationing: Bool = false
     /// 交互对象
     var interactivePopTransition: UIPercentDrivenInteractiveTransition?
